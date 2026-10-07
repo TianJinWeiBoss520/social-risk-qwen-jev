@@ -1,0 +1,127 @@
+{
+  "version": "archived_source_manifest_v1",
+  "scope": "Original local experimental Python sources and tests, copied without modification; not data/weights/runtime artifacts",
+  "algorithm": "sha256",
+  "files": [
+    {
+      "path": "experiments/v1/src/audit_ltedi_images.py",
+      "sha256": "1546ffce5b8741122fdff731d56639f74617200ff2733eb281b32248f3474f95"
+    },
+    {
+      "path": "experiments/v1/src/download_ltedi_images.py",
+      "sha256": "34d3ccf7c47d8e3ea1c33d1d0336bb15201c052f701b66c38299fcbfe4c87498"
+    },
+    {
+      "path": "experiments/v1/src/evaluate_ltedi_qwen_base.py",
+      "sha256": "1560ec33fc1901cfb9c06199c55ac0ff55c266fe5e754bb080501253977a4dda"
+    },
+    {
+      "path": "experiments/v1/src/expand_ltedi_evidence_val172.py",
+      "sha256": "96b7a9e2e90f36b380bf60de252873adfc6fc967ced9406576fbfe7cacf3d1ea"
+    },
+    {
+      "path": "experiments/v1/src/prepare_ltedi_chain_review23.py",
+      "sha256": "051142c40bb15df6ae04490919c8283db59061160d420615ee88938a7632187c"
+    },
+    {
+      "path": "experiments/v1/src/prepare_ltedi_jev_pilot.py",
+      "sha256": "418127d062c42096680688b790331d719aae4601fdcc3be1138c374787093d03"
+    },
+    {
+      "path": "experiments/v1/src/prepare_ltedi_splits.py",
+      "sha256": "8724899193f24d33e74e0a74eab1a38ecc86fe166e87ad8be04e30d63549f023"
+    },
+    {
+      "path": "experiments/v1/src/probe_ltedi_lora_evidence20.py",
+      "sha256": "2683abef9befff7d34206755f564817845bc1e9e508cf1bba212e21fdee4187e"
+    },
+    {
+      "path": "experiments/v1/src/review_ltedi_dataset.py",
+      "sha256": "662a554a04b4a4af8feda1ca017509cf47dd01358e274cc0b25d9bc4479a83c8"
+    },
+    {
+      "path": "experiments/v1/src/run_ltedi_frozen_test170.py",
+      "sha256": "ba7cffbd8015e3868fc04eedb83b514a69996a2301453c050c8c1b803ca3e667"
+    },
+    {
+      "path": "experiments/v1/src/run_ltedi_jev_cloud20.py",
+      "sha256": "9db9d25eb092a8426da27f7153bb467ed35a2c5f6a17af23453e5f0f3594a051"
+    },
+    {
+      "path": "experiments/v1/src/run_ltedi_jev_remaining152.py",
+      "sha256": "be50854650b59faa56ae4f5aa3211881b7a8bcbc258ec4fcb75b8dfbbe8b65cd"
+    },
+    {
+      "path": "experiments/v1/src/run_ltedi_jev_text_vs_multimodal172.py",
+      "sha256": "82b41a194c826122cd6410fed6b0ab3be9ee61948fcf4ac6f4339ce8388846ba"
+    },
+    {
+      "path": "experiments/v1/src/run_ltedi_language_lora_pilot.py",
+      "sha256": "edaf2202fed9023a7782f1fa80367e58dfd5b1b075a6945797479afcd7e63608"
+    },
+    {
+      "path": "experiments/v1/src/train_ltedi_cpu_baselines.py",
+      "sha256": "ef71f5ec120a0d4f3879c8dabdf6fff908869b55c086e931243fdd8388c554ee"
+    },
+    {
+      "path": "experiments/v1/tests/test_audit_ltedi_images.py",
+      "sha256": "314196a655636307b68daa7b82f5853561e033b29825e6471add73f5520ebc01"
+    },
+    {
+      "path": "experiments/v1/tests/test_download_ltedi_images.py",
+      "sha256": "16016779f5aa85e8e8bfe0045b3d962489af3952c29373c5d9d9e3ae47b36900"
+    },
+    {
+      "path": "experiments/v1/tests/test_evaluate_ltedi_qwen_base.py",
+      "sha256": "2e1d422bc0495914231579d7981db1a674815e709aad33351bc6af92e77c5101"
+    },
+    {
+      "path": "experiments/v1/tests/test_expand_ltedi_evidence_val172.py",
+      "sha256": "569961e0c7325a6a4eeb8ce081f4d2231414104195d56b97156b02302d73b50d"
+    },
+    {
+      "path": "experiments/v1/tests/test_prepare_ltedi_chain_review23.py",
+      "sha256": "d89c20424119119a1d684d74e2bea34d69051d3dab4202ea95a2d31972d927ce"
+    },
+    {
+      "path": "experiments/v1/tests/test_prepare_ltedi_jev_pilot.py",
+      "sha256": "1552c67daf46dba0a25b87d0fc7340712643ccf9eecb395acf8cc511ab863fcc"
+    },
+    {
+      "path": "experiments/v1/tests/test_prepare_ltedi_splits.py",
+      "sha256": "1799d00397911f0291e53b76d64e32a131886f591400cb4c1d4bba3d11c8ef27"
+    },
+    {
+      "path": "experiments/v1/tests/test_probe_ltedi_lora_evidence20.py",
+      "sha256": "53f242ae6bfbf8c61b0f1a16553cd2c9c1684009c60608d6a93c4f07f70b725f"
+    },
+    {
+      "path": "experiments/v1/tests/test_review_ltedi_dataset.py",
+      "sha256": "7408a0ed1160a6ab4d9b7c8ad4a05b0049c889b4cf89e4b6c913fce8f035d7b1"
+    },
+    {
+      "path": "experiments/v1/tests/test_run_ltedi_frozen_test170.py",
+      "sha256": "fd522783837a1d14265d9df7661160b36dcb94619c5df9e6c7a4392a1e212f5a"
+    },
+    {
+      "path": "experiments/v1/tests/test_run_ltedi_jev_cloud20.py",
+      "sha256": "d2f3384ac39340d1b357681462328b2232d5192e1c23d7b139e28db497edd3b0"
+    },
+    {
+      "path": "experiments/v1/tests/test_run_ltedi_jev_remaining152.py",
+      "sha256": "9d74f7e69c31533961c1fbaea333aa2b4d767f3c3e462123759746769fc0e0e1"
+    },
+    {
+      "path": "experiments/v1/tests/test_run_ltedi_jev_text_vs_multimodal172.py",
+      "sha256": "7cdb9b1773258cb84e2ce77a4ce1c8e1d3fa03654bd0119f3dab816a70f646dc"
+    },
+    {
+      "path": "experiments/v1/tests/test_run_ltedi_language_lora_pilot.py",
+      "sha256": "7477896ccae0572b3d6151d9cc2558385aa08da718dabdd9b8359014dda68cd7"
+    },
+    {
+      "path": "experiments/v1/tests/test_train_ltedi_cpu_baselines.py",
+      "sha256": "a380a19ca7acfd8bcce18f9102a98bed0d9f2c5565774bca3c5dc59a41df0847"
+    }
+  ]
+}

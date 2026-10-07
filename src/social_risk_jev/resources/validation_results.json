@@ -1,0 +1,588 @@
+{
+  "version": "public_validation_history_v1",
+  "split": "validation",
+  "n": 172,
+  "class_support": {
+    "not_misogyny": 123,
+    "misogyny": 49
+  },
+  "provenance": "Owner-supplied development logs and reports; methods differ in prompt, loading path and policy threshold.",
+  "cautions": [
+    "Repeatedly used development set, not independent final test.",
+    "Sort is descriptive; compare protocols before drawing causal claims.",
+    "Threshold sweep results are exploratory, not pre-registered test measurements.",
+    "Smoke5/smoke16/pilot20 are excluded from this full-set leaderboard."
+  ],
+  "methods": [
+    {
+      "id": "majority",
+      "name": "多数类基线",
+      "confusion_matrix": [
+        [
+          123,
+          0
+        ],
+        [
+          49,
+          0
+        ]
+      ],
+      "protocol": "cpu_validation"
+    },
+    {
+      "id": "tfidf_logreg_c1",
+      "name": "TF-IDF＋Logistic Regression C=1",
+      "confusion_matrix": [
+        [
+          122,
+          1
+        ],
+        [
+          14,
+          35
+        ]
+      ],
+      "protocol": "cpu_validation"
+    },
+    {
+      "id": "tfidf_logreg_c4",
+      "name": "TF-IDF＋Logistic Regression C=4",
+      "confusion_matrix": [
+        [
+          123,
+          0
+        ],
+        [
+          14,
+          35
+        ]
+      ],
+      "protocol": "cpu_validation"
+    },
+    {
+      "id": "tfidf_xgboost_d2",
+      "name": "TF-IDF＋XGBoost depth=2",
+      "confusion_matrix": [
+        [
+          119,
+          4
+        ],
+        [
+          15,
+          34
+        ]
+      ],
+      "protocol": "cpu_validation"
+    },
+    {
+      "id": "tfidf_xgboost_d4",
+      "name": "TF-IDF＋XGBoost depth=4",
+      "confusion_matrix": [
+        [
+          118,
+          5
+        ],
+        [
+          13,
+          36
+        ]
+      ],
+      "protocol": "cpu_validation"
+    },
+    {
+      "id": "base_original_image_text",
+      "name": "原始加载路径 Qwen 图文七字段",
+      "confusion_matrix": [
+        [
+          118,
+          5
+        ],
+        [
+          19,
+          30
+        ]
+      ],
+      "protocol": "original_loading_seven_fields"
+    },
+    {
+      "id": "base_original_text_only",
+      "name": "Qwen 仅文本消融",
+      "confusion_matrix": [
+        [
+          117,
+          6
+        ],
+        [
+          25,
+          24
+        ]
+      ],
+      "protocol": "original_loading_seven_fields"
+    },
+    {
+      "id": "text_or_base_original_image_text",
+      "name": "文本 OR 原始加载 Qwen 图文",
+      "confusion_matrix": [
+        [
+          118,
+          5
+        ],
+        [
+          6,
+          43
+        ]
+      ],
+      "protocol": "original_loading_seven_fields"
+    },
+    {
+      "id": "text_or_base_original_text_only",
+      "name": "文本 OR Qwen 仅文本",
+      "confusion_matrix": [
+        [
+          117,
+          6
+        ],
+        [
+          4,
+          45
+        ]
+      ],
+      "protocol": "original_loading_seven_fields"
+    },
+    {
+      "id": "base_short_label",
+      "name": "配对 Base（短标签提示词）",
+      "confusion_matrix": [
+        [
+          120,
+          3
+        ],
+        [
+          18,
+          31
+        ]
+      ],
+      "protocol": "matched_short_label"
+    },
+    {
+      "id": "lora_short_label_final",
+      "name": "LoRA final245（短标签提示词）",
+      "confusion_matrix": [
+        [
+          117,
+          6
+        ],
+        [
+          11,
+          38
+        ]
+      ],
+      "protocol": "matched_short_label"
+    },
+    {
+      "id": "lora_short_label_ck100",
+      "name": "LoRA checkpoint100（短标签提示词）",
+      "confusion_matrix": [
+        [
+          117,
+          6
+        ],
+        [
+          11,
+          38
+        ]
+      ],
+      "protocol": "matched_short_label"
+    },
+    {
+      "id": "lora_short_label_ck200",
+      "name": "LoRA checkpoint200（短标签提示词）",
+      "confusion_matrix": [
+        [
+          117,
+          6
+        ],
+        [
+          11,
+          38
+        ]
+      ],
+      "protocol": "matched_short_label"
+    },
+    {
+      "id": "text_or_base_short",
+      "name": "文本 OR Base（短标签提示词）",
+      "confusion_matrix": [
+        [
+          120,
+          3
+        ],
+        [
+          6,
+          43
+        ]
+      ],
+      "protocol": "matched_short_label"
+    },
+    {
+      "id": "text_or_lora_short",
+      "name": "文本 OR LoRA final245（短标签提示词）",
+      "confusion_matrix": [
+        [
+          117,
+          6
+        ],
+        [
+          5,
+          44
+        ]
+      ],
+      "protocol": "matched_short_label"
+    },
+    {
+      "id": "text_or_lora_short_ck100",
+      "name": "文本 OR LoRA checkpoint100（短标签）",
+      "confusion_matrix": [
+        [
+          117,
+          6
+        ],
+        [
+          5,
+          44
+        ]
+      ],
+      "protocol": "matched_short_label"
+    },
+    {
+      "id": "text_or_lora_short_ck200",
+      "name": "文本 OR LoRA checkpoint200（短标签）",
+      "confusion_matrix": [
+        [
+          117,
+          6
+        ],
+        [
+          5,
+          44
+        ]
+      ],
+      "protocol": "matched_short_label"
+    },
+    {
+      "id": "base_matched_seven",
+      "name": "配对 Base（图文七字段）",
+      "confusion_matrix": [
+        [
+          119,
+          4
+        ],
+        [
+          19,
+          30
+        ]
+      ],
+      "protocol": "matched_evidence_seven_fields"
+    },
+    {
+      "id": "lora_matched_seven",
+      "name": "LoRA（图文七字段）",
+      "confusion_matrix": [
+        [
+          118,
+          5
+        ],
+        [
+          14,
+          35
+        ]
+      ],
+      "protocol": "matched_evidence_seven_fields"
+    },
+    {
+      "id": "text_or_lora_matched_seven",
+      "name": "文本 OR LoRA（图文七字段）",
+      "confusion_matrix": [
+        [
+          118,
+          5
+        ],
+        [
+          5,
+          44
+        ]
+      ],
+      "protocol": "matched_evidence_seven_fields"
+    },
+    {
+      "id": "pure_jev_text_t040",
+      "name": "纯 Jev 文本 t=0.40（固定政策消融）",
+      "confusion_matrix": [
+        [
+          122,
+          1
+        ],
+        [
+          32,
+          17
+        ]
+      ],
+      "protocol": "fixed_policy_text_vs_multimodal"
+    },
+    {
+      "id": "pure_jev_text_t050",
+      "name": "纯 Jev 文本 t=0.50（固定对照）",
+      "confusion_matrix": [
+        [
+          123,
+          0
+        ],
+        [
+          33,
+          16
+        ]
+      ],
+      "protocol": "fixed_policy_text_vs_multimodal"
+    },
+    {
+      "id": "multi_jev_t0.10",
+      "name": "LoRA图文证据＋Jev t=0.10",
+      "confusion_matrix": [
+        [
+          104,
+          19
+        ],
+        [
+          5,
+          44
+        ]
+      ],
+      "protocol": "exploratory_threshold_sweep"
+    },
+    {
+      "id": "text_or_multi_jev_t0.10",
+      "name": "文本 OR 多模态＋Jev t=0.10",
+      "confusion_matrix": [
+        [
+          104,
+          19
+        ],
+        [
+          2,
+          47
+        ]
+      ],
+      "protocol": "exploratory_threshold_sweep"
+    },
+    {
+      "id": "multi_jev_t0.15",
+      "name": "LoRA图文证据＋Jev t=0.15",
+      "confusion_matrix": [
+        [
+          113,
+          10
+        ],
+        [
+          8,
+          41
+        ]
+      ],
+      "protocol": "exploratory_threshold_sweep"
+    },
+    {
+      "id": "text_or_multi_jev_t0.15",
+      "name": "文本 OR 多模态＋Jev t=0.15",
+      "confusion_matrix": [
+        [
+          113,
+          10
+        ],
+        [
+          4,
+          45
+        ]
+      ],
+      "protocol": "exploratory_threshold_sweep"
+    },
+    {
+      "id": "multi_jev_t0.20",
+      "name": "LoRA图文证据＋Jev t=0.20",
+      "confusion_matrix": [
+        [
+          117,
+          6
+        ],
+        [
+          13,
+          36
+        ]
+      ],
+      "protocol": "exploratory_threshold_sweep"
+    },
+    {
+      "id": "text_or_multi_jev_t0.20",
+      "name": "文本 OR 多模态＋Jev t=0.20",
+      "confusion_matrix": [
+        [
+          117,
+          6
+        ],
+        [
+          4,
+          45
+        ]
+      ],
+      "protocol": "exploratory_threshold_sweep"
+    },
+    {
+      "id": "multi_jev_t0.25",
+      "name": "LoRA图文证据＋Jev t=0.25",
+      "confusion_matrix": [
+        [
+          117,
+          6
+        ],
+        [
+          14,
+          35
+        ]
+      ],
+      "protocol": "exploratory_threshold_sweep"
+    },
+    {
+      "id": "text_or_multi_jev_t0.25",
+      "name": "文本 OR 多模态＋Jev t=0.25",
+      "confusion_matrix": [
+        [
+          117,
+          6
+        ],
+        [
+          4,
+          45
+        ]
+      ],
+      "protocol": "exploratory_threshold_sweep"
+    },
+    {
+      "id": "multi_jev_t0.30",
+      "name": "LoRA图文证据＋Jev t=0.30",
+      "confusion_matrix": [
+        [
+          118,
+          5
+        ],
+        [
+          16,
+          33
+        ]
+      ],
+      "protocol": "exploratory_threshold_sweep"
+    },
+    {
+      "id": "text_or_multi_jev_t0.30",
+      "name": "文本 OR 多模态＋Jev t=0.30",
+      "confusion_matrix": [
+        [
+          118,
+          5
+        ],
+        [
+          4,
+          45
+        ]
+      ],
+      "protocol": "exploratory_threshold_sweep"
+    },
+    {
+      "id": "multi_jev_t0.35",
+      "name": "LoRA图文证据＋Jev t=0.35",
+      "confusion_matrix": [
+        [
+          119,
+          4
+        ],
+        [
+          17,
+          32
+        ]
+      ],
+      "protocol": "exploratory_threshold_sweep"
+    },
+    {
+      "id": "text_or_multi_jev_t0.35",
+      "name": "文本 OR 多模态＋Jev t=0.35",
+      "confusion_matrix": [
+        [
+          119,
+          4
+        ],
+        [
+          4,
+          45
+        ]
+      ],
+      "protocol": "exploratory_threshold_sweep"
+    },
+    {
+      "id": "multi_jev_t0.40",
+      "name": "LoRA图文证据＋Jev t=0.40",
+      "confusion_matrix": [
+        [
+          120,
+          3
+        ],
+        [
+          17,
+          32
+        ]
+      ],
+      "protocol": "fixed_policy_text_vs_multimodal"
+    },
+    {
+      "id": "text_or_multi_jev_t0.40",
+      "name": "文本 OR 多模态＋Jev t=0.40",
+      "confusion_matrix": [
+        [
+          120,
+          3
+        ],
+        [
+          4,
+          45
+        ]
+      ],
+      "protocol": "exploratory_threshold_sweep"
+    },
+    {
+      "id": "multi_jev_t0.50",
+      "name": "LoRA图文证据＋Jev t=0.50",
+      "confusion_matrix": [
+        [
+          120,
+          3
+        ],
+        [
+          22,
+          27
+        ]
+      ],
+      "protocol": "fixed_policy_text_vs_multimodal"
+    },
+    {
+      "id": "text_or_multi_jev_t0.50",
+      "name": "文本 OR 多模态＋Jev t=0.50",
+      "confusion_matrix": [
+        [
+          120,
+          3
+        ],
+        [
+          5,
+          44
+        ]
+      ],
+      "protocol": "exploratory_threshold_sweep"
+    }
+  ]
+}

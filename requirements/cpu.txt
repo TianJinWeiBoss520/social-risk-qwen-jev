@@ -1,0 +1,7 @@
+# Observed working CPU environment; Python 3.12.
+Pillow==12.3.0
+numpy==1.26.4
+scipy==1.15.2
+scikit-learn==1.6.1
+joblib==1.4.2
+xgboost-cpu==3.4.1

@@ -1,0 +1,28 @@
+[
+  {
+    "transcription": "合成示例：分享今天做的午餐。",
+    "evidence": {
+      "label": 0,
+      "gender_targeted": false,
+      "attack_present": false,
+      "stance": "unclear",
+      "image_role": "neutral",
+      "needs_review": false,
+      "evidence": "合成缓存：日常生活分享，没有性别攻击证据。"
+    },
+    "synthetic_score": 0.05
+  },
+  {
+    "transcription": "合成示例：攻击性刻板印象的虚构审核案例。",
+    "evidence": {
+      "label": 1,
+      "gender_targeted": true,
+      "attack_present": true,
+      "stance": "support",
+      "image_role": "supports",
+      "needs_review": true,
+      "evidence": "合成缓存：演示风险路由，不代表真实模型输出。"
+    },
+    "synthetic_score": 0.9
+  }
+]

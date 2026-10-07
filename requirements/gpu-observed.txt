@@ -1,0 +1,7 @@
+# Observed server versions, NOT a universal CUDA install recipe.
+# Install a matching CUDA-enabled PyTorch build for your GPU separately.
+torch==2.13.0
+transformers==5.16.1
+peft==0.21.2
+bitsandbytes==0.50.2
+Pillow==12.3.0

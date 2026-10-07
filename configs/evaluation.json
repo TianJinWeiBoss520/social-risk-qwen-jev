@@ -1,0 +1,18 @@
+{
+  "task": "Chinese misogyny meme classification, not generic moderation",
+  "train_n": 978,
+  "validation_n": 172,
+  "test_n": 170,
+  "split_seed": 2060,
+  "group_disjoint": true,
+  "sort_metric": "macro_f1",
+  "selected_text_model": "tfidf_logreg_c4",
+  "selected_text_threshold": 0.7,
+  "jev_model": "jev-1.13.0",
+  "primary_jev_threshold": 0.4,
+  "fixed_control_threshold": 0.5,
+  "risk_bands": {"low": "[0,0.2)", "medium": "[0.2,0.8)", "high": "[0.8,1]"},
+  "risk_bands_calibrated": false,
+  "automatic_content_deletion": false,
+  "test_retuning_permitted": false
+}

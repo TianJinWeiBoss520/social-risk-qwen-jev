@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "social-risk-qwen-jev"
+version = "0.1.0"
+description = "Chinese multimodal moderation experiments with Qwen3-VL, LoRA and TypeSafe Jev"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.12"
+authors = [{name = "TianJinWeiBoss520"}]
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/TianJinWeiBoss520/social-risk-qwen-jev"
+Issues = "https://github.com/TianJinWeiBoss520/social-risk-qwen-jev/issues"
+
+[project.optional-dependencies]
+cpu = ["Pillow==12.3.0", "numpy==1.26.4", "scipy==1.15.2", "scikit-learn==1.6.1", "joblib==1.4.2", "xgboost-cpu==3.4.1"]
+
+[project.scripts]
+social-risk = "social_risk_jev.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+social_risk_jev = ["resources/*.json"]

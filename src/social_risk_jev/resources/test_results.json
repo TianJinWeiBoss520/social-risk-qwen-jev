@@ -1,0 +1,197 @@
+{
+  "version": "public_aggregate_test170_v1",
+  "split": "test",
+  "n": 170,
+  "class_support": {
+    "not_misogyny": 123,
+    "misogyny": 47
+  },
+  "provenance": "Reconstructed from the completed owner-supplied frozen-test report; no new inference or re-evaluation",
+  "sort_metric": "macro_f1",
+  "primary_method": "PRIMARY_TEXT_OR_JEV_T040",
+  "cautions": [
+    "Original development split was reserved as this project's test; not the shared-task official test.",
+    "Pure text-only Jev was NOT evaluated on this test.",
+    "JEV_T040/JEV_T050 are multimodal-evidence pipelines, not pure Jev.",
+    "Thresholds and methods were frozen before revealing this test; no retuning.",
+    "Test aggregate results are observed, not proof of universal dominance or significance."
+  ],
+  "methods": [
+    {
+      "id": "tfidf_logreg_c4",
+      "name": "TF-IDF＋Logistic Regression（C=4）",
+      "confusion_matrix": [
+        [
+          123,
+          0
+        ],
+        [
+          12,
+          35
+        ]
+      ],
+      "input": "text",
+      "protocol": "frozen_test170_v1"
+    },
+    {
+      "id": "tfidf_logreg_c1",
+      "name": "TF-IDF＋Logistic Regression（C=1）",
+      "confusion_matrix": [
+        [
+          121,
+          2
+        ],
+        [
+          11,
+          36
+        ]
+      ],
+      "input": "text",
+      "protocol": "frozen_test170_v1"
+    },
+    {
+      "id": "tfidf_xgboost_d4",
+      "name": "TF-IDF＋XGBoost（depth=4）",
+      "confusion_matrix": [
+        [
+          120,
+          3
+        ],
+        [
+          11,
+          36
+        ]
+      ],
+      "input": "text",
+      "protocol": "frozen_test170_v1"
+    },
+    {
+      "id": "tfidf_xgboost_d2",
+      "name": "TF-IDF＋XGBoost（depth=2）",
+      "confusion_matrix": [
+        [
+          120,
+          3
+        ],
+        [
+          12,
+          35
+        ]
+      ],
+      "input": "text",
+      "protocol": "frozen_test170_v1"
+    },
+    {
+      "id": "TEXT_OR_QWEN_LORA_IMAGE_TEXT",
+      "name": "文本基线 OR LoRA Qwen（图像＋文本）",
+      "confusion_matrix": [
+        [
+          111,
+          12
+        ],
+        [
+          4,
+          43
+        ]
+      ],
+      "input": "hybrid",
+      "protocol": "frozen_test170_v1"
+    },
+    {
+      "id": "TEXT_OR_QWEN_BASE_IMAGE_TEXT",
+      "name": "文本基线 OR 未微调 Qwen（图像＋文本）",
+      "confusion_matrix": [
+        [
+          112,
+          11
+        ],
+        [
+          6,
+          41
+        ]
+      ],
+      "input": "hybrid",
+      "protocol": "frozen_test170_v1"
+    },
+    {
+      "id": "PRIMARY_TEXT_OR_JEV_T040",
+      "name": "文本基线 OR 多模态＋Jev（t=0.40，预先冻结主方案）",
+      "confusion_matrix": [
+        [
+          111,
+          12
+        ],
+        [
+          6,
+          41
+        ]
+      ],
+      "input": "hybrid",
+      "protocol": "frozen_test170_v1"
+    },
+    {
+      "id": "QWEN_LORA_IMAGE_TEXT",
+      "name": "LoRA Qwen3-VL-32B（图像＋文本）",
+      "confusion_matrix": [
+        [
+          111,
+          12
+        ],
+        [
+          12,
+          35
+        ]
+      ],
+      "input": "multimodal",
+      "protocol": "frozen_test170_v1"
+    },
+    {
+      "id": "JEV_T040",
+      "name": "LoRA Qwen证据＋Jev（t=0.40，非纯Jev）",
+      "confusion_matrix": [
+        [
+          111,
+          12
+        ],
+        [
+          15,
+          32
+        ]
+      ],
+      "input": "multimodal-plus-jev",
+      "protocol": "frozen_test170_v1"
+    },
+    {
+      "id": "QWEN_BASE_IMAGE_TEXT",
+      "name": "未微调 Qwen3-VL-32B（图像＋文本）",
+      "confusion_matrix": [
+        [
+          112,
+          11
+        ],
+        [
+          19,
+          28
+        ]
+      ],
+      "input": "multimodal",
+      "protocol": "frozen_test170_v1"
+    },
+    {
+      "id": "JEV_T050_FIXED_CONTROL",
+      "name": "LoRA Qwen证据＋Jev（t=0.50固定对照，非纯Jev）",
+      "confusion_matrix": [
+        [
+          112,
+          11
+        ],
+        [
+          19,
+          28
+        ]
+      ],
+      "input": "multimodal-plus-jev",
+      "protocol": "frozen_test170_v1"
+    }
+  ]
+}
