@@ -4,7 +4,7 @@
 
 中文社交平台图文内容风险识别：从数据治理、传统基线、Qwen3-VL 垂域 LoRA，到结构化证据与 TypeSafe Jev 决策的可审计实验项目。
 
-[English](README.en.md) · [纯 Jev 对照](#pure-jev-comparison) · [架构](docs/ARCHITECTURE.md) · [全部开发实验](docs/VALIDATION_RESULTS.md) · [复现](docs/REPRODUCIBILITY.md) · [模型卡](docs/MODEL_CARD.md) · [成本与速度](docs/LATENCY_COST.md)
+[English](README.en.md) · [纯 Jev 对照](#pure-jev-comparison) · [架构](docs/ARCHITECTURE.md) · [全部开发实验](docs/VALIDATION_RESULTS.md) · [复现](docs/REPRODUCIBILITY.md) · [模型卡](docs/MODEL_CARD.md) · [成本与速度](docs/LATENCY_COST.md) · [数据与 badcase 私有导出](docs/DATA_EXPORT.md)
 
 > 状态：实验阶段暂时结束，整理为研究项目。原创代码与文档采用 [MIT 许可证](LICENSE)。这里公开代码、配置与汇总结果，不公开数据集图片/文本、逐条预测、模型权重、私人审核记录或 API 密钥。不是自动删帖系统，也不是通用风控产品；数据、模型和 API 各有独立条款。
 
@@ -132,6 +132,8 @@ social-risk-qwen-jev/
 │   └── source_manifest.json  # 历史源码 SHA-256
 ├── configs/                  # 已用配置快照，不伪装自动执行配置
 ├── scripts/                  # 测试、发布检查、显式实验启动器
+├── data/{train,val,test}/    # 公开README；原图/转录/两列CSV只在私有导出包
+├── badcase/                  # 公开说明；LoRA+Jev的val/test错误案例私有
 ├── tests/                    # 公共接口与结果一致性测试
 ├── docs/                     # 架构/数据/模型/评估/成本/复现/项目叙述
 ├── requirements/             # CPU 依赖与已观察 GPU 环境
@@ -139,6 +141,8 @@ social-risk-qwen-jev/
 ```
 
 公共模块负责稳定接口；历史脚本负责真实实验流程。两者刻意分开，避免整理目录时破坏既有导入与哈希审计链。新的工程入口不会假装历史脚本已经全部改成可移植生产服务。
+
+[data](data/README.md) 与 [badcase](badcase/README.md) 提供工程目录和数量说明，不包含真实样本。新增标准库离线工具可将已有 AutoDL 数据整理为 1320 条原图＋转录、两列 `image_name,label` CSV，以及固定 t=0.40 下验证 20 / 测试 27 条 LoRA 图文证据＋Jev 错误案例（实际 Jev 输入与输出）。**工具存在不等于真实私有导出已经完成。** 操作见 [私有导出指南](docs/DATA_EXPORT.md)，不新增 GPU/API 调用，不更改原实验结果；原数据再分发许可未明确，真实文件仍不公开。
 
 ## 测试与发布检查
 
@@ -163,6 +167,7 @@ python scripts/run_experiment.py list
 | [评估协议](docs/EVALUATION.md) | 冻结测试、配对比较、置信区间和失败计数 |
 | [纯 Jev 补充测试](docs/PURE_JEV_TEST_SUPPLEMENT.md) | 同一 170 条上的纯文本/图文证据对照、续跑审计与事后补充限制 |
 | [数据卡](docs/DATA_CARD.md) / [模型卡](docs/MODEL_CARD.md) | 数据治理、监督范围、训练配置及适用限制 |
+| [私有数据与 badcase 导出](docs/DATA_EXPORT.md) | 978/172/170原图转录、两列CSV、val20/test27组合模型错误；真实文件不公开 |
 | [速度与成本](docs/LATENCY_COST.md) | CPU 与 GPU/API 的不同计时范围，费用不是账单上限 |
 | [实验历程](docs/EXPERIMENTS.md) | 已完成、仅诊断、讨论但未实现的方法 |
 | [项目叙述](docs/PROJECT_STORY.md) | 面试中能被实验支撑的表述与业务取舍 |

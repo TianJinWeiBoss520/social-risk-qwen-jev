@@ -154,7 +154,9 @@ class PublicInterfaces(unittest.TestCase):
 
     def test_local_document_links_exist(self):
         root = Path(__file__).resolve().parents[1]
-        for path in (list(root.glob("*.md")) + list((root / "docs").glob("*.md"))):
+        documents = (list(root.glob("*.md")) + list((root / "docs").glob("*.md"))
+                     + list((root / "data").rglob("README.md")) + list((root / "badcase").glob("README.md")))
+        for path in documents:
             for target in re.findall(r"\]\(([^)]+)\)", path.read_text(encoding="utf-8")):
                 if "://" in target or target.startswith("#"):
                     continue

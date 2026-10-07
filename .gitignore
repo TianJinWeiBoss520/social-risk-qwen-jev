@@ -2,7 +2,17 @@
 /.env
 /.env.*
 !/.env.example
-/data/
+# Public documentation only. Everything generated below these roots is private.
+/data/**
+!/data/README.md
+!/data/train/
+!/data/train/README.md
+!/data/val/
+!/data/val/README.md
+!/data/test/
+!/data/test/README.md
+/badcase/**
+!/badcase/README.md
 /outputs/
 /reports/
 /logs/

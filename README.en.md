@@ -1,5 +1,7 @@
 # Social Risk · Qwen3-VL + Jev
 
+[Private dataset and badcase export](docs/DATA_EXPORT.md): public `data/train`, `data/val`, `data/test` and `badcase` contain documentation only. A standard-library offline utility exports existing images/transcripts, a two-column `image_name,label` CSV and the saved LoRA-evidence-plus-Jev mistakes into a separate **private** package. No new inference/API calls; no dataset redistribution. Validation/test mistakes are diagnostic, not training data.
+
 A research project on Chinese multimodal misogyny detection: data quality checks, text baselines, Qwen3-VL-32B language-attention LoRA, structured evidence, and a hosted TypeSafe Jev policy decision layer.
 
 **[Full Chinese README and ranked results](README.md)** · [Evaluation](docs/EVALUATION.md) · [Reproduction](docs/REPRODUCIBILITY.md)

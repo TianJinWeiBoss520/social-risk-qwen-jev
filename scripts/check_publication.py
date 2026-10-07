@@ -10,7 +10,10 @@ import subprocess
 from pathlib import Path
 
 SKIP = {".git", ".venv", "venv", "__pycache__", ".cpu_testdeps", ".pytest_cache", "build", "dist"}
-PRIVATE_ROOTS = {"data", "outputs", "reports", "logs", "models", "checkpoints", "private"}
+PRIVATE_ROOTS = {"data", "badcase", "outputs", "reports", "logs", "models", "checkpoints", "private"}
+# Exact documentation paths only; CSVs, transcripts and per-case JSON stay blocked.
+PUBLIC_SCAFFOLD = {"data/README.md", "data/train/README.md", "data/val/README.md",
+                   "data/test/README.md", "badcase/README.md"}
 PRIVATE_SUFFIXES = {".safetensors", ".bin", ".pt", ".pth", ".pkl", ".joblib", ".zip", ".rar", ".part", ".jpg", ".jpeg", ".png", ".gif", ".htm", ".html"}
 SECRET_PATTERNS = (
     ("github_token", re.compile(rb"(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,})")),
@@ -23,10 +26,11 @@ SECRET_PATTERNS = (
 def candidate_files(root):
     root = root.resolve()
     if (root / ".git").exists():
-        process = subprocess.run(["git", "ls-files", "-z"], cwd=root, capture_output=True, check=True)
-        tracked = [root / p.decode("utf-8") for p in process.stdout.split(b"\0") if p]
-        if tracked:
-            return tracked
+        process = subprocess.run(["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"],
+                                 cwd=root, capture_output=True, check=True)
+        candidates = [root / p.decode("utf-8") for p in process.stdout.split(b"\0") if p]
+        if candidates:
+            return candidates
     return [p for p in root.rglob("*") if p.is_file() and not set(p.relative_to(root).parts) & SKIP]
 
 
@@ -39,7 +43,8 @@ def scan(root):
             findings.append((str(relative), "symlink_not_allowed"))
             continue
         parts, name = relative.parts, relative.name
-        if (parts[0] in PRIVATE_ROOTS or (name.startswith(".env") and name != ".env.example")
+        if ((parts[0] in PRIVATE_ROOTS and relative.as_posix() not in PUBLIC_SCAFFOLD)
+                or (name.startswith(".env") and name != ".env.example")
                 or path.suffix.lower() in PRIVATE_SUFFIXES
                 or any(term in name for term in ("PRIVATE", "LOCAL_ONLY", "DO_NOT_UPLOAD", "NOT_TRAINING"))):
             findings.append((str(relative), "private_artifact_not_allowed"))
