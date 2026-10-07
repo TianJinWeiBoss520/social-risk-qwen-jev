@@ -14,6 +14,8 @@
 - 已发布公开仓库 [TianJinWeiBoss520/social-risk-qwen-jev](https://github.com/TianJinWeiBoss520/social-risk-qwen-jev)，GitHub识别MIT；初次发布76个公开文件，纯 Jev 补充说明新增1个文档。未改写用户个人主页README；可自行在主页置顶项目。
 - Git HTTPS发布修复时遇到网络连接重置，改用GitHub官方Git对象API；校验树/提交SHA与本地一致，非强制快进更新，不覆盖历史或其他项目。
 
-本次追加 `data/train,val,test` 与 `badcase` 公开说明及离线导出工具，已有排行榜/历史源码不变。新增测试只使用合成数据，不代表已经导出或下载真实1320条数据和47条案例。AutoDL连接检查未成功，GitHub网络同步因工具权限审批服务失败未执行；新增版本尚未推送，不能沿用旧提交CI成绩声称新版远端验收完成。用户可按 [导出指南](DATA_EXPORT.md) 在自己的终端运行；公开仓库只放说明和工具，真实导出包私有。
+本次追加 `data/train,val,test` 与 `badcase` 公开说明及离线导出工具，已有排行榜/历史源码不变。新增测试只使用合成数据，不代表真实数据评估被重新执行。初次整理时 AutoDL连接检查和GitHub审批服务未成功，后续已定位Windows CMD缺少Git PATH的问题；新增版本的CI仍须按对应提交另行检查，不能沿用旧提交成绩。
+
+用户随后在AutoDL执行了零写入预检与私有导出，提供日志：`EXPORT_COMPLETE CSV_ROWS=1320 BADCASES=47 SOURCE_FILES_UNCHANGED=True`。因此，真实数据与错误案例的私有打包已由用户终端完成；本地下载/解压仍需另外执行，不能把成功打包日志当作下载或逐条人工核查证明。导出没有新增GPU/API调用。公开仓库只放说明和工具，不包含真实导出包。操作见 [导出指南](DATA_EXPORT.md)。
 
 原始工具目录、私人审核数据、远端训练产物未修改或删除。公开候选不包含图片、转录、逐条预测、私有HTML、权重或真实密钥。
