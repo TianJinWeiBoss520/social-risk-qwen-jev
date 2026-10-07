@@ -65,7 +65,7 @@ class PublicInterfaces(unittest.TestCase):
 
     def test_metrics_and_complete_public_sets(self):
         test, val = load_results("test"), load_results("validation")
-        self.assertEqual(len(test["methods"]), 11)
+        self.assertEqual(len(test["methods"]), 13)
         self.assertEqual(len(val["methods"]), 38)
         for document in (test, val):
             for row in document["methods"]:
@@ -100,8 +100,34 @@ class PublicInterfaces(unittest.TestCase):
             self.assertIn(f"| {rank} | {row['name']} | {scores} | {m['false_positives']} | {m['false_negatives']} |",
                           comparison)
         self.assertIn('172 条验证样本', comparison)
-        self.assertIn('未评测', comparison)
+        self.assertIn('170 条纯 Jev 补充测试已加入上方主表', comparison)
         self.assertFalse(any(row["id"] in comparison_ids for row in load_results("test")["methods"]))
+
+    def test_supplementary_pure_jev_complete_scope_and_matched_thresholds(self):
+        result = load_results("test")
+        metadata = result["supplementary_test"]
+        self.assertTrue(metadata["complete"])
+        self.assertEqual(metadata["n"], 170)
+        self.assertEqual(metadata["original_successes_reused"] + metadata["new_successful_posts"], 170)
+        self.assertEqual(metadata["total_post_attempts_across_runs"], 171)
+        self.assertTrue(metadata["old_timeout_billing_unknown"])
+        self.assertRegex(metadata["owner_supplied_completion_log_sha256"], r"^[0-9a-f]{64}$")
+        rows = {row["id"]: row for row in result["methods"]}
+        frozen = [row for row in rows.values() if row["protocol"] == "frozen_test170_v1"]
+        self.assertEqual(len(frozen), 11)
+        for name, matrix, threshold, logged in (
+            ("PURE_JEV_TEXT_T040_SUPPLEMENTARY", [[121, 2], [35, 12]], .4, (.6304, .7824, .8571, .2553)),
+            ("PURE_JEV_TEXT_T050_SUPPLEMENTARY_CONTROL", [[122, 1], [35, 12]], .5, (.6357, .7882, .9231, .2553)),
+        ):
+            row = rows[name]
+            self.assertEqual(row["confusion_matrix"], matrix)
+            self.assertEqual(row["protocol"], "posthoc_supplementary_test_no_retuning")
+            self.assertEqual(row["input"], "text-only-jev")
+            self.assertEqual(row["threshold"], threshold)
+            for metric, expected in zip(("macro_f1", "accuracy", "harmful_precision", "harmful_recall"), logged):
+                self.assertEqual(round(row["metrics"][metric], 4), expected)
+        self.assertAlmostEqual(rows["JEV_T040"]["metrics"]["harmful_recall"] -
+                               rows["PURE_JEV_TEXT_T040_SUPPLEMENTARY"]["metrics"]["harmful_recall"], 20/47)
 
     def test_synthetic_demo_without_api(self):
         out = StringIO()

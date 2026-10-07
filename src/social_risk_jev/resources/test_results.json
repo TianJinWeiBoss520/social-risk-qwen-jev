@@ -1,21 +1,37 @@
 {
-  "version": "public_aggregate_test170_v1",
+  "version": "public_aggregate_test170_v2",
   "split": "test",
   "n": 170,
   "class_support": {
     "not_misogyny": 123,
     "misogyny": 47
   },
-  "provenance": "Reconstructed from the completed owner-supplied frozen-test report; no new inference or re-evaluation",
+  "provenance": "Original 11 methods from the owner-supplied frozen-test report; two pure-Jev supplementary controls reconstructed from owner-supplied completed test170 logs. This publication performs no inference or API calls.",
   "sort_metric": "macro_f1",
   "primary_method": "PRIMARY_TEXT_OR_JEV_T040",
   "cautions": [
     "Original development split was reserved as this project's test; not the shared-task official test.",
-    "Pure text-only Jev was NOT evaluated on this test.",
+    "Pure text-only Jev was added after the original test results were revealed; it is a supplementary comparator, not a pre-registered original method.",
     "JEV_T040/JEV_T050 are multimodal-evidence pipelines, not pure Jev.",
-    "Thresholds and methods were frozen before revealing this test; no retuning.",
+    "The original 11 methods were frozen before revealing this test. Supplementary pure Jev retains the same policy, model and thresholds 0.40/0.50 without retuning.",
+    "The text-only arm removes the Qwen evidence bundle, not only the image; its unchanged policy still mentions absent perception_hypotheses.",
+    "API calls occurred at different times. Aggregate confusion matrices do not establish paired significance or isolate image-only causality.",
     "Test aggregate results are observed, not proof of universal dominance or significance."
   ],
+  "supplementary_test": {
+    "complete": true,
+    "n": 170,
+    "model": "jev-1.13.0",
+    "scope": "posthoc_supplementary_test_no_retuning",
+    "original_successes_reused": 104,
+    "new_successful_posts": 66,
+    "original_failed_or_uncertain_posts": 1,
+    "total_post_attempts_across_runs": 171,
+    "old_timeout_billing_unknown": true,
+    "owner_supplied_completion_log_sha256": "9eb025fcdf8b042ca4129c137d945983ad8500f5a6949b4a9c28e3c69f4c9447",
+    "metrics_reconstructed_from_aggregate_confusion_counts": true,
+    "row_level_predictions_published": false
+  },
   "methods": [
     {
       "id": "tfidf_logreg_c4",
@@ -192,6 +208,22 @@
       ],
       "input": "multimodal-plus-jev",
       "protocol": "frozen_test170_v1"
+    },
+    {
+      "id": "PURE_JEV_TEXT_T040_SUPPLEMENTARY",
+      "name": "纯 Jev 文本（t=0.40，补充测试）",
+      "confusion_matrix": [[121, 2], [35, 12]],
+      "input": "text-only-jev",
+      "protocol": "posthoc_supplementary_test_no_retuning",
+      "threshold": 0.40
+    },
+    {
+      "id": "PURE_JEV_TEXT_T050_SUPPLEMENTARY_CONTROL",
+      "name": "纯 Jev 文本（t=0.50固定对照，补充测试）",
+      "confusion_matrix": [[122, 1], [35, 12]],
+      "input": "text-only-jev",
+      "protocol": "posthoc_supplementary_test_no_retuning",
+      "threshold": 0.50
     }
   ]
 }
