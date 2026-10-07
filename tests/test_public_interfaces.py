@@ -82,8 +82,26 @@ class PublicInterfaces(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         if not (root / "README.md").exists():
             self.skipTest("README not available in wheel-only installation")
-        self.assertIn(render_table(), (root / "README.md").read_text(encoding="utf-8"))
+        readme = (root / "README.md").read_text(encoding="utf-8")
+        self.assertIn(render_table(), readme)
         self.assertIn(render_table("validation"), (root / "docs/VALIDATION_RESULTS.md").read_text(encoding="utf-8"))
+        comparison_ids = {"multi_jev_t0.40", "multi_jev_t0.50",
+                          "pure_jev_text_t040", "pure_jev_text_t050"}
+        validation = load_results("validation")
+        methods = sorted((row for row in validation["methods"] if row["id"] in comparison_ids),
+                         key=lambda row: (-row["metrics"]["macro_f1"], row["id"]))
+        self.assertEqual(len(methods), 4)
+        self.assertEqual(validation["n"], 172)
+        comparison = readme.split('## 纯 Jev 与多模态＋Jev：验证集对照', 1)[1].split('\n## ', 1)[0]
+        for rank, row in enumerate(methods, 1):
+            m = row["metrics"]
+            scores = " | ".join(f"{100*m[key]:.2f}%" for key in
+                                ("macro_f1", "accuracy", "harmful_precision", "harmful_recall"))
+            self.assertIn(f"| {rank} | {row['name']} | {scores} | {m['false_positives']} | {m['false_negatives']} |",
+                          comparison)
+        self.assertIn('172 条验证样本', comparison)
+        self.assertIn('未评测', comparison)
+        self.assertFalse(any(row["id"] in comparison_ids for row in load_results("test")["methods"]))
 
     def test_synthetic_demo_without_api(self):
         out = StringIO()
