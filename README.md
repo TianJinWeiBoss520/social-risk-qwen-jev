@@ -121,6 +121,8 @@ social-risk-qwen-jev/
 
 ```bash
 python -m pip install -e ".[cpu]"
+# 完整历史回归中的标签掩码测试还需要CPU张量库；不要为此装CUDA：
+python -m pip install torch==2.7.0 --index-url https://download.pytorch.org/whl/cpu
 python scripts/run_tests.py
 python scripts/check_publication.py --require-license
 python scripts/run_experiment.py list

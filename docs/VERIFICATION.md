@@ -9,7 +9,7 @@
 - 历史30个Python源码/测试文件与源副本逐字节校验；仓库manifest保存SHA-256，测试验证一致性。LF属性避免跨平台checkout改变来源哈希。
 - 轻量wheel离线构建成功；`demo`与排行榜入口验证成功，API调用数为0。合成demo不是实测模型预测。
 - 私有工件/疑似密钥检查：0项发现。不证明完全不存在PII或任意形式密钥；仍需人工审核staged文件。
-- GitHub Actions配置已编写，但**尚未在GitHub执行**，不展示伪造CI状态。
+- GitHub Actions已在公开仓库启动。首次运行安装与发布检查通过，历史回归的标签掩码测试因未声明CPU PyTorch而失败；已补充CPU-only安装步骤，等待新一轮CI验证。不改历史源码、不跳过失败测试。
 - 作者已于2026-10-07确认MIT，根目录LICENSE与包元数据已补齐。发布检查使用`--require-license`。
 - 本机Git已核对登录TianJinWeiBoss520；不需要安装插件。发布结果以GitHub远端实际内容为准，不自动改写用户个人主页README。
 

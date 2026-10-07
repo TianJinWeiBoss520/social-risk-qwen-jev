@@ -26,11 +26,12 @@ social-risk demo
 
 ```bash
 python -m pip install -e ".[cpu]"
+python -m pip install torch==2.7.0 --index-url https://download.pytorch.org/whl/cpu
 python scripts/run_tests.py
 python scripts/check_publication.py
 ```
 
-CPU extra 包括图像审计与传统基线依赖。测试中云端调用与 GPU 模型均模拟；不要设置密钥。历史测试之间复用了部分测试类，运行总数可能含重复执行的用例，不应宣传为同等数量的独立功能。
+CPU extra 包括图像审计与传统基线依赖。完整历史回归还需要CPU PyTorch进行标签掩码的张量检查；它不加载Qwen、不要求GPU，不需要transformers/peft。CI固定CPU PyTorch 2.7.0，这不是原AutoDL GPU训练版本。根据 [PyTorch官方安装指南](https://pytorch.org/get-started/locally/) 选择CPU构建，避免额外下载CUDA库。测试中云端调用与GPU模型均模拟；不要设置密钥。历史测试之间复用了部分测试类，运行总数可能含重复执行的用例，不应宣传为同等数量的独立功能。
 
 ## 3. 历史实验入口
 
