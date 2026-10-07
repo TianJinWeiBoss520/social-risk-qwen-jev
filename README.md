@@ -1,5 +1,7 @@
 # Social Risk · Qwen3-VL + Jev
 
+[![CPU regression tests](https://github.com/TianJinWeiBoss520/social-risk-qwen-jev/actions/workflows/tests.yml/badge.svg)](https://github.com/TianJinWeiBoss520/social-risk-qwen-jev/actions/workflows/tests.yml) · [MIT](LICENSE)
+
 中文社交平台图文内容风险识别：从数据治理、传统基线、Qwen3-VL 垂域 LoRA，到结构化证据与 TypeSafe Jev 决策的可审计实验项目。
 
 [English](README.en.md) · [架构](docs/ARCHITECTURE.md) · [全部开发实验](docs/VALIDATION_RESULTS.md) · [复现](docs/REPRODUCIBILITY.md) · [模型卡](docs/MODEL_CARD.md) · [成本与速度](docs/LATENCY_COST.md)

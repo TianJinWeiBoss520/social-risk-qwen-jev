@@ -9,8 +9,9 @@
 - 历史30个Python源码/测试文件与源副本逐字节校验；仓库manifest保存SHA-256，测试验证一致性。LF属性避免跨平台checkout改变来源哈希。
 - 轻量wheel离线构建成功；`demo`与排行榜入口验证成功，API调用数为0。合成demo不是实测模型预测。
 - 私有工件/疑似密钥检查：0项发现。不证明完全不存在PII或任意形式密钥；仍需人工审核staged文件。
-- GitHub Actions已在公开仓库启动。首次运行安装与发布检查通过，历史回归的标签掩码测试因未声明CPU PyTorch而失败；已补充CPU-only安装步骤，等待新一轮CI验证。不改历史源码、不跳过失败测试。
+- GitHub Actions已在公开仓库完成验证。[提交83daec5的CI运行](https://github.com/TianJinWeiBoss520/social-risk-qwen-jev/actions/runs/37609046148)全部通过：安装、CPU张量依赖、发布检查、完整回归、demo和排行榜。首次运行的历史回归因未声明CPU PyTorch而失败，已补充CPU-only安装步骤；不改历史源码、不跳过失败测试。
 - 作者已于2026-10-07确认MIT，根目录LICENSE与包元数据已补齐。发布检查使用`--require-license`。
-- 本机Git已核对登录TianJinWeiBoss520；不需要安装插件。发布结果以GitHub远端实际内容为准，不自动改写用户个人主页README。
+- 已发布公开仓库 [TianJinWeiBoss520/social-risk-qwen-jev](https://github.com/TianJinWeiBoss520/social-risk-qwen-jev)，GitHub识别MIT，main的文件树和README已核对一致，共76个公开文件。未改写用户个人主页README；可自行在主页置顶项目。
+- Git HTTPS发布修复时遇到网络连接重置，改用GitHub官方Git对象API；校验树/提交SHA与本地一致，非强制快进更新，不覆盖历史或其他项目。
 
 原始工具目录、私人审核数据、远端训练产物未修改或删除。公开候选不包含图片、转录、逐条预测、私有HTML、权重或真实密钥。
