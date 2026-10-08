@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="184mm" height="71.244mm" viewBox="0 0 1640 635">
+<title>Qwen3-VL perception and Jev risk decision architecture</title>
+<desc>Image and text feed a frozen Qwen3-VL backbone with language-side LoRA. Validated, masked evidence and transcription form the Jev JSON state. A fixed policy conditions the hosted Jev model; its score is mapped to operational risk bands.</desc>
+<rect x="0" y="0" width="1640" height="635" rx="0" fill="#FFFFFF" stroke="none" stroke-width="1.7"/>
+<text x="34" y="74.24609375" font-family="Arial, sans-serif" font-size="28" text-anchor="start" fill="#26323D" font-weight="700">(a)</text>
+<text x="82" y="74.24609375" font-family="Arial, sans-serif" font-size="28" text-anchor="start" fill="#26323D" font-weight="700">Input</text>
+<text x="266" y="74.24609375" font-family="Arial, sans-serif" font-size="28" text-anchor="start" fill="#26323D" font-weight="700">(b)</text>
+<text x="314" y="74.24609375" font-family="Arial, sans-serif" font-size="28" text-anchor="start" fill="#26323D" font-weight="700">Perception</text>
+<text x="930" y="74.24609375" font-family="Arial, sans-serif" font-size="28" text-anchor="start" fill="#26323D" font-weight="700">(c)</text>
+<text x="978" y="74.24609375" font-family="Arial, sans-serif" font-size="28" text-anchor="start" fill="#26323D" font-weight="700">Interface</text>
+<text x="1209" y="74.24609375" font-family="Arial, sans-serif" font-size="28" text-anchor="start" fill="#26323D" font-weight="700">(d)</text>
+<text x="1257" y="74.24609375" font-family="Arial, sans-serif" font-size="28" text-anchor="start" fill="#26323D" font-weight="700">Decision</text>
+<text x="1435" y="74.24609375" font-family="Arial, sans-serif" font-size="28" text-anchor="start" fill="#26323D" font-weight="700">(e)</text>
+<text x="1483" y="74.24609375" font-family="Arial, sans-serif" font-size="28" text-anchor="start" fill="#26323D" font-weight="700">Risk</text>
+<rect x="34" y="167" width="172" height="112" rx="8" fill="#FFFFFF" stroke="#A6B2BE" stroke-width="1.7"/>
+<text x="120" y="195.728515625" font-family="Arial, sans-serif" font-size="26" text-anchor="middle" fill="#26323D" font-weight="700">Text</text>
+<polyline points="62,216 177,216" fill="none" stroke="#6D7884" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="62,235 163,235" fill="none" stroke="#6D7884" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="62,254 142,254" fill="none" stroke="#6D7884" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="34" y="326" width="172" height="134" rx="8" fill="#FFFFFF" stroke="#A6B2BE" stroke-width="1.7"/>
+<text x="120" y="356.728515625" font-family="Arial, sans-serif" font-size="26" text-anchor="middle" fill="#26323D" font-weight="700">Image</text>
+<rect x="62" y="374" width="116" height="62" rx="4" fill="#EDF3F9" stroke="#4F739D" stroke-width="1.5"/>
+<circle cx="153" cy="389" r="6" fill="#F4E5CC" stroke="#B88442" stroke-width="1.2"/>
+<polygon points="66,431 99,393 123,418 141,401 173,431" fill="#BDD0E2" stroke="none" stroke-width="1.5"/>
+<rect x="255" y="117" width="625" height="419" rx="12" fill="#FBFCFE" stroke="#8FA6BF" stroke-width="2"/>
+<text x="281" y="151.0224609375" font-family="Arial, sans-serif" font-size="31" text-anchor="start" fill="#26323D" font-weight="700">Qwen3-VL-32B-Instruct</text>
+<rect x="289" y="169" width="194" height="44" rx="6" fill="#FBF5EC" stroke="#C8AE8D" stroke-width="1.7"/>
+<text x="386" y="197.2109375" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#26323D">Tokenizer</text>
+<polyline points="483,191 499,191 499,166 786,166 786,175" fill="none" stroke="#B88442" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="786,175 782.32,167.0 789.68,167.0" fill="#B88442" stroke="none" stroke-width="1.5"/>
+<rect x="290" y="273" width="193" height="155" rx="8" fill="#F3F5F7" stroke="#91A1AF" stroke-width="1.7"/>
+<rect x="318" y="291" width="136" height="10" rx="2" fill="#D7E1EC" stroke="#92A9C0" stroke-width="1"/>
+<rect x="322" y="308" width="136" height="10" rx="2" fill="#C2D1E1" stroke="#92A9C0" stroke-width="1"/>
+<rect x="326" y="325" width="136" height="10" rx="2" fill="#AABFD5" stroke="#92A9C0" stroke-width="1"/>
+<text x="386" y="366.4697265625" font-family="Arial, sans-serif" font-size="25" text-anchor="middle" fill="#26323D" font-weight="700">Vision encoder</text>
+<rect x="337.6" y="397.2" width="12.8" height="10.4" rx="1.6" fill="#FFFFFF" stroke="#6D7884" stroke-width="1.7"/>
+<polyline points="340.0,397.2 340.0,391.6 348.0,391.6 348.0,397.2" fill="none" stroke="#6D7884" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="344" cy="401.2" r="1.2000000000000002" fill="#6D7884" stroke="none" stroke-width="1.7"/>
+<text x="388" y="405.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#6D7884">Frozen</text>
+<rect x="513" y="229" width="111" height="43" rx="6" fill="#F3F5F7" stroke="#A6B2BE" stroke-width="1.7"/>
+<text x="568" y="255.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#26323D">Merger</text>
+<polyline points="386,273 386,250 513,250" fill="none" stroke="#4F739D" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="513,250 505.0,253.68 505.0,246.32" fill="#4F739D" stroke="none" stroke-width="1.5"/>
+<polyline points="624,250 640,250 640,188 655,188" fill="none" stroke="#4F739D" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="655,188 647.0,191.68 647.0,184.32" fill="#4F739D" stroke="none" stroke-width="1.5"/>
+<rect x="657" y="177" width="19" height="22" rx="1" fill="#CBDCEC" stroke="#4F739D" stroke-width="1.3"/>
+<rect x="681" y="177" width="19" height="22" rx="1" fill="#CBDCEC" stroke="#4F739D" stroke-width="1.3"/>
+<rect x="705" y="177" width="19" height="22" rx="1" fill="#CBDCEC" stroke="#4F739D" stroke-width="1.3"/>
+<rect x="729" y="177" width="19" height="22" rx="1" fill="#CBDCEC" stroke="#4F739D" stroke-width="1.3"/>
+<rect x="753" y="177" width="19" height="22" rx="1" fill="#CBDCEC" stroke="#4F739D" stroke-width="1.3"/>
+<rect x="777" y="177" width="19" height="22" rx="1" fill="#F4E5CC" stroke="#B88442" stroke-width="1.3"/>
+<rect x="801" y="177" width="19" height="22" rx="1" fill="#F4E5CC" stroke="#B88442" stroke-width="1.3"/>
+<rect x="825" y="177" width="19" height="22" rx="1" fill="#F4E5CC" stroke="#B88442" stroke-width="1.3"/>
+<text x="752" y="143.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#6D7884">V/T tokens</text>
+<polyline points="752,201 752,218" fill="none" stroke="#26323D" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="752,218 748.32,210.0 755.68,210.0" fill="#26323D" stroke="none" stroke-width="1.5"/>
+<rect x="659" y="220" width="194" height="224" rx="8" fill="#F3F5F7" stroke="#8194A6" stroke-width="1.8"/>
+<text x="756" y="250.4697265625" font-family="Arial, sans-serif" font-size="25" text-anchor="middle" fill="#26323D" font-weight="700">Qwen3 decoder</text>
+<rect x="679" y="265" width="144" height="26" rx="4" fill="#FFFFFF" stroke="#A0ADBA" stroke-width="1.2"/>
+<text x="743" y="283.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#26323D">Layer 1</text>
+<rect x="802" y="265" width="21" height="26" rx="3" fill="#F4E5CC" stroke="#B88442" stroke-width="1.1"/>
+<rect x="679" y="300" width="144" height="26" rx="4" fill="#FFFFFF" stroke="#A0ADBA" stroke-width="1.2"/>
+<text x="743" y="318.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#26323D">Layer 2</text>
+<rect x="802" y="300" width="21" height="26" rx="3" fill="#F4E5CC" stroke="#B88442" stroke-width="1.1"/>
+<rect x="679" y="335" width="144" height="26" rx="4" fill="#FFFFFF" stroke="#A0ADBA" stroke-width="1.2"/>
+<text x="743" y="353.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#26323D">Layer 3</text>
+<rect x="802" y="335" width="21" height="26" rx="3" fill="#F4E5CC" stroke="#B88442" stroke-width="1.1"/>
+<text x="744" y="388.2109375" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#6D7884">...</text>
+<rect x="679" y="398" width="144" height="26" rx="4" fill="#FFFFFF" stroke="#A0ADBA" stroke-width="1.2"/>
+<text x="743" y="416.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#26323D">Layer N</text>
+<rect x="802" y="398" width="21" height="26" rx="3" fill="#F4E5CC" stroke="#B88442" stroke-width="1.1"/>
+<polyline points="483,300 540,300" fill="none" stroke="#89A8C7" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 4"/>
+<circle cx="483" cy="300" r="3" fill="#89A8C7" stroke="none" stroke-width="1.7"/>
+<rect x="540" y="292" width="22" height="16" rx="2" fill="#DFE9F3" stroke="#89A8C7" stroke-width="1.3"/>
+<polyline points="562,300 603,300 644,278 678,278" fill="none" stroke="#89A8C7" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 4"/>
+<polygon points="678,278 671.0,281.22 671.0,274.78" fill="#89A8C7" stroke="none" stroke-width="1.5"/>
+<polyline points="483,330 540,330" fill="none" stroke="#7094B9" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 4"/>
+<circle cx="483" cy="330" r="3" fill="#7094B9" stroke="none" stroke-width="1.7"/>
+<rect x="540" y="322" width="22" height="16" rx="2" fill="#DFE9F3" stroke="#7094B9" stroke-width="1.3"/>
+<polyline points="562,330 603,330 644,313 678,313" fill="none" stroke="#7094B9" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 4"/>
+<polygon points="678,313 671.0,316.22 671.0,309.78" fill="#7094B9" stroke="none" stroke-width="1.5"/>
+<polyline points="483,360 540,360" fill="none" stroke="#537BA3" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 4"/>
+<circle cx="483" cy="360" r="3" fill="#537BA3" stroke="none" stroke-width="1.7"/>
+<rect x="540" y="352" width="22" height="16" rx="2" fill="#DFE9F3" stroke="#537BA3" stroke-width="1.3"/>
+<polyline points="562,360 603,360 644,348 678,348" fill="none" stroke="#537BA3" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 4"/>
+<polygon points="678,348 671.0,351.22 671.0,344.78" fill="#537BA3" stroke="none" stroke-width="1.5"/>
+<text x="566" y="402.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#4F739D">DeepStack</text>
+<rect x="664" y="461" width="184" height="45" rx="6" fill="#F4E5CC" stroke="#B88442" stroke-width="1.5"/>
+<text x="756" y="490.2109375" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#79572D" font-weight="700">LoRA  r = 8</text>
+<polyline points="813,461 813,432" fill="none" stroke="#B88442" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="813" cy="432" r="3" fill="#B88442" stroke="none" stroke-width="1.7"/>
+<rect x="303.6" y="483.2" width="12.8" height="10.4" rx="1.6" fill="#FFFFFF" stroke="#6D7884" stroke-width="1.7"/>
+<polyline points="306.0,483.2 306.0,477.6 314.0,477.6 314.0,483.2" fill="none" stroke="#6D7884" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="310" cy="487.2" r="1.2000000000000002" fill="#6D7884" stroke="none" stroke-width="1.7"/>
+<text x="342" y="491.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="start" fill="#6D7884">Frozen base</text>
+<text x="573" y="524.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#6D7884">Local inference</text>
+<polyline points="207,220 268,220 268,191 288,191" fill="none" stroke="#26323D" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="288,191 280.0,194.68 280.0,187.32" fill="#26323D" stroke="none" stroke-width="1.5"/>
+<polyline points="207,393 258,393 258,330 288,330" fill="none" stroke="#26323D" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="288,330 280.0,333.68 280.0,326.32" fill="#26323D" stroke="none" stroke-width="1.5"/>
+<polyline points="853,411 906,411 906,365 930,365" fill="none" stroke="#26323D" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="930,365 922.0,368.68 922.0,361.32" fill="#26323D" stroke="none" stroke-width="1.5"/>
+<rect x="930" y="169" width="238" height="367" rx="10" fill="#FFFFFF" stroke="#8FA6BF" stroke-width="1.8"/>
+<text x="1049" y="200.24609375" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" fill="#26323D" font-weight="700">JSON state</text>
+<text x="1049" y="247.677734375" font-family="Consolas, sans-serif" font-size="44" text-anchor="middle" fill="#4F739D">{ }</text>
+<text x="950" y="284.58154296875" font-family="Consolas, sans-serif" font-size="23" text-anchor="start" fill="#3C536B">gender_targeted</text>
+<text x="950" y="312.58154296875" font-family="Consolas, sans-serif" font-size="23" text-anchor="start" fill="#3C536B">attack_present</text>
+<text x="950" y="340.58154296875" font-family="Consolas, sans-serif" font-size="23" text-anchor="start" fill="#3C536B">stance</text>
+<text x="950" y="368.58154296875" font-family="Consolas, sans-serif" font-size="23" text-anchor="start" fill="#3C536B">image_role</text>
+<text x="950" y="396.58154296875" font-family="Consolas, sans-serif" font-size="23" text-anchor="start" fill="#3C536B">needs_review</text>
+<text x="950" y="424.58154296875" font-family="Consolas, sans-serif" font-size="23" text-anchor="start" fill="#3C536B">evidence</text>
+<polyline points="950,444 1148,444" fill="none" stroke="#CFD9E3" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="1049" y="476.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#6D7884">Validate + mask</text>
+<text x="1049" y="509.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#6D7884">No labels</text>
+<polyline points="229,220 229,384" fill="none" stroke="#6D7884" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="229,402 229,576 1049,576" fill="none" stroke="#6D7884" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="229" cy="220" r="3" fill="#6D7884" stroke="none" stroke-width="1.7"/>
+<polyline points="1049,576 1049,537" fill="none" stroke="#6D7884" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1049,537 1052.68,545.0 1045.32,545.0" fill="#6D7884" stroke="none" stroke-width="1.5"/>
+<rect x="530" y="561" width="211" height="31" rx="0" fill="#FFFFFF" stroke="none" stroke-width="1.7"/>
+<text x="635" y="582.2109375" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#6D7884">Transcription</text>
+<polyline points="1168,365 1205,365" fill="none" stroke="#26323D" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1205,365 1197.0,368.68 1197.0,361.32" fill="#26323D" stroke="none" stroke-width="1.5"/>
+<rect x="1207" y="169" width="183" height="65" rx="8" fill="#FFFFFF" stroke="#83A699" stroke-width="1.6"/>
+<text x="1298" y="207.9873046875" font-family="Arial, sans-serif" font-size="27" text-anchor="middle" fill="#4B7D6C" font-weight="700">Policy</text>
+<polyline points="1298,234 1298,280" fill="none" stroke="#4B7D6C" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1298,280 1294.32,272.0 1301.68,272.0" fill="#4B7D6C" stroke="none" stroke-width="1.5"/>
+<rect x="1207" y="281" width="183" height="170" rx="10" fill="#EDF5F1" stroke="#4B7D6C" stroke-width="2"/>
+<text x="1298" y="334.3515625" font-family="Arial, sans-serif" font-size="40" text-anchor="middle" fill="#315D4E" font-weight="700">Jev</text>
+<text x="1298" y="374.4697265625" font-family="Arial, sans-serif" font-size="25" text-anchor="middle" fill="#26323D">System One</text>
+<text x="1298" y="415.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#4B7D6C">jev-1.13.0</text>
+<text x="1298" y="493.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#6D7884">Hosted API</text>
+<polyline points="1391,365 1414,365" fill="none" stroke="#26323D" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="1414,289 1414,467" fill="none" stroke="#26323D" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="1414" cy="365" r="3" fill="#26323D" stroke="none" stroke-width="1.7"/>
+<text x="1523" y="199.9873046875" font-family="Arial, sans-serif" font-size="27" text-anchor="middle" fill="#26323D" font-weight="700">Score [0, 1]</text>
+<polyline points="1414,289 1436,289" fill="none" stroke="#26323D" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1436,289 1428.0,292.68 1428.0,285.32" fill="#26323D" stroke="none" stroke-width="1.5"/>
+<rect x="1438" y="252" width="168" height="74" rx="8" fill="#E8F2EC" stroke="#58866B" stroke-width="1.6"/>
+<text x="1522" y="281.9873046875" font-family="Arial, sans-serif" font-size="27" text-anchor="middle" fill="#58866B" font-weight="700">Low</text>
+<text x="1522" y="309.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#26323D">[0, 0.2)</text>
+<polyline points="1414,378 1436,378" fill="none" stroke="#26323D" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1436,378 1428.0,381.68 1428.0,374.32" fill="#26323D" stroke="none" stroke-width="1.5"/>
+<rect x="1438" y="341" width="168" height="74" rx="8" fill="#F9F0DD" stroke="#A78A43" stroke-width="1.6"/>
+<text x="1522" y="370.9873046875" font-family="Arial, sans-serif" font-size="27" text-anchor="middle" fill="#A78A43" font-weight="700">Medium</text>
+<text x="1522" y="398.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#26323D">[0.2, 0.8)</text>
+<polyline points="1414,467 1436,467" fill="none" stroke="#26323D" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1436,467 1428.0,470.68 1428.0,463.32" fill="#26323D" stroke="none" stroke-width="1.5"/>
+<rect x="1438" y="430" width="168" height="74" rx="8" fill="#F6E8E5" stroke="#AD6662" stroke-width="1.6"/>
+<text x="1522" y="459.9873046875" font-family="Arial, sans-serif" font-size="27" text-anchor="middle" fill="#AD6662" font-weight="700">High</text>
+<text x="1522" y="487.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#26323D">[0.8, 1]</text>
+<text x="1522" y="538.9521484375" font-family="Arial, sans-serif" font-size="23" text-anchor="middle" fill="#6D7884">Risk bands</text>
+</svg>

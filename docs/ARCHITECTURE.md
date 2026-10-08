@@ -1,5 +1,9 @@
 # 架构与模块边界
 
+![Qwen3-VL 图文感知、结构化证据接口与 Jev 风险决策](assets/qwen-jev-architecture.svg)
+
+上图为主链路的原创矢量示意图，按本项目实际采用的 Qwen3-VL-32B-Instruct、语言注意力 LoRA（rank=8）和托管 Jev 接口绘制，不是完整计算图。DeepStack 多层视觉特征注入按 [Qwen 官方技术报告](https://arxiv.org/html/2511.21631v1#S2) 抽象表示；Jev 按独立服务绘制，不推测其内部网络结构。图中不含真实数据集样本。下方流程另列可选文本基线与 OR 对照，二者不属于这张主链路图中的联合训练。
+
 ```mermaid
 flowchart LR
     A[图像＋转录文本] --> B[本地 Qwen3-VL-32B / 4bit＋语言侧LoRA]

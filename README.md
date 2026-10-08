@@ -4,6 +4,16 @@
 
 中文社交平台图文内容风险识别：从数据治理、传统基线、Qwen3-VL 垂域 LoRA，到结构化证据与 TypeSafe Jev 决策的可审计实验项目。
 
+## 整体网络架构
+
+<p align="center">
+  <img src="docs/assets/qwen-jev-architecture.svg" width="1200" alt="整体架构：图像与文本经 Qwen3-VL 感知，输出结构化证据，再由 Jev 按固定政策决策并进行风险分段。">
+</p>
+
+**图文感知 → 结构化证据 JSON → Jev 政策决策 → 风险分段。** 图中展示主链路：视觉编码器与基座冻结，仅训练语言侧 LoRA；发送 Jev 前移除 Qwen 最终标签。风险分段不代表经校准的概率。
+
+[查看矢量原图](docs/assets/qwen-jev-architecture.svg) · [架构与模块说明](docs/ARCHITECTURE.md)
+
 [English](README.en.md) · [纯 Jev 对照](#pure-jev-comparison) · [架构](docs/ARCHITECTURE.md) · [全部开发实验](docs/VALIDATION_RESULTS.md) · [复现](docs/REPRODUCIBILITY.md) · [模型卡](docs/MODEL_CARD.md) · [成本与速度](docs/LATENCY_COST.md) · [数据与 badcase 私有导出](docs/DATA_EXPORT.md)
 
 > 状态：实验阶段暂时结束，整理为研究项目。原创代码与文档采用 [MIT 许可证](LICENSE)。这里公开代码、配置与汇总结果，不公开数据集图片/文本、逐条预测、模型权重、私人审核记录或 API 密钥。不是自动删帖系统，也不是通用风控产品；数据、模型和 API 各有独立条款。

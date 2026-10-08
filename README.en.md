@@ -1,5 +1,15 @@
 # Social Risk · Qwen3-VL + Jev
 
+## Overall architecture
+
+<p align="center">
+  <img src="docs/assets/qwen-jev-architecture.svg" width="1200" alt="Overall architecture: Qwen3-VL processes images and text, produces structured evidence, and passes it to Jev for fixed-policy decisions and risk bands.">
+</p>
+
+**Image–text perception → structured evidence JSON → Jev policy decision → risk bands.** The figure shows the main evidence-mediated pathway: a frozen backbone with language-side LoRA, removal of the Qwen final label before Jev, and operational risk bands rather than calibrated probabilities.
+
+[View the vector figure](docs/assets/qwen-jev-architecture.svg) · [Architecture and module boundaries](docs/ARCHITECTURE.md)
+
 [Private dataset and badcase export](docs/DATA_EXPORT.md): public `data/train`, `data/val`, `data/test` and `badcase` contain documentation only. A standard-library offline utility exports existing images/transcripts, a two-column `image_name,label` CSV and the saved LoRA-evidence-plus-Jev mistakes into a separate **private** package. No new inference/API calls; no dataset redistribution. Validation/test mistakes are diagnostic, not training data.
 
 A research project on Chinese multimodal misogyny detection: data quality checks, text baselines, Qwen3-VL-32B language-attention LoRA, structured evidence, and a hosted TypeSafe Jev policy decision layer.
